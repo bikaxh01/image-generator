@@ -1,0 +1,66 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id           String         @id
+  firstName    String
+  lastName     String
+  email        String         @unique
+  avatarUrl    String
+  createdAt    DateTime       @default(now())
+  conversation conversation[]
+}
+
+model conversation {
+  id        String   @id @default(uuid())
+  userId    String
+  user      user     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  prompt    prompt[]
+}
+
+model prompt {
+  id             String           @id @default(uuid())
+  conversationId String
+  prompt         String
+  createdAt      DateTime         @default(now())
+  conversation   conversation     @relation(fields: [conversationId], references: [id])
+  generatedImage generatedImage[]
+}
+
+model generatedImage {
+  id         String          @id @default(uuid())
+  promptId   String
+  imageUrl   String
+  isPublic   Boolean         @default(true)
+  resolution IMAGERESOLUTION @default(R1024x1024)
+  style      STYLE
+  quality    QUALITY
+  prompt     prompt          @relation(fields: [promptId], references: [id])
+  createdAt  DateTime        @default(now())
+}
+
+enum STYLE {
+  VIVID
+  NATURAL
+}
+
+enum IMAGERESOLUTION {
+  R1024x1024
+  R1024x1792
+  R1792x1024
+  R256x256
+  R512x512
+}
+
+enum QUALITY {
+  STANDARD
+  HD
+}

@@ -1,16 +1,17 @@
-"use client"
-import { Button } from '@/components/ui/button'
-import { useParams } from 'next/navigation'
-import React from 'react'
+"use client";
+import NavBar from "@/components/common/Nav";
+import { Button } from "@/components/ui/button";
+import { useParams } from "next/navigation";
+import React from "react";
 
 function GeneratePage() {
-    const param = useParams()
-    const conversationId = param.conversationId
+  const param = useParams();
+  const conversationId = param.conversationId;
   return (
-    <div>GeneratePage {conversationId} <Button >
-        click me
-        </Button></div>
-  )
+    <div>
+      <NavBar />
+    </div>
+  );
 }
 
-export default GeneratePage
+export default GeneratePage;

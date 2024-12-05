@@ -3,14 +3,15 @@ import React from "react";
 const Gallery = () => {
   return (
     <div className="p-10">
-        <div className="mb-8">
-
-      <h1 className="text-3xl font-bold mb-2 text-gray-400">Get inspired by the community</h1>
-      <p className="text-md bold text-gray-400">
-        See what others are making, discover prompts, and share your own
-        images.
-      </p>
-        </div>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2 text-gray-400">
+          Get inspired by the community
+        </h1>
+        <p className="text-md bold text-gray-400">
+          See what others are making, discover prompts, and share your own
+          images.
+        </p>
+      </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 ">
         <div className="grid gap-4">
           <div>

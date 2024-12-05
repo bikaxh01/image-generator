@@ -1,3 +1,5 @@
+
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -46,22 +48,20 @@ const Hero = () => {
           </p>
         </div>
        
-        <div className="mt-8 flex justify-center  max-w-1/2 ">
-          <button className="inline-flex justify-center items-center gap-x-3 text-center shadow-lg bg-gray-300 text-sm font-medium rounded-md py-3 px-4">
-            <input
-              type="text"
-              placeholder="Describe the Image you want to Generate"
-              className="w-[70rem] h-[2rem] bg-gray-300 text-gray-500 outline-none border-none"
-            />
-          </button>
-        </div>
+       
         <div className="mt-8 gap-3 flex justify-center">
-          <a
+          <Link
             className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:from-violet-600 focus:to-blue-600 py-3 px-4"
-            href="#"
+            href="/generate"
           >
             Get started
-          </a>
+          </Link>
+          <Link
+            className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:from-violet-600 focus:to-blue-600 py-3 px-4"
+            href="/explore"
+          >
+            Explore
+          </Link>
         </div>
       </div>
     </div>

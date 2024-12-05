@@ -1,5 +1,13 @@
-import Image from "next/image";
+import NavBar from "@/components/common/Nav";
+import Hero from "@/components/hero";
+import Gallery from "@/components/gallery";
 
 export default function Home() {
-  return <>Create a next generation app with the help of AI</>;
+  return (
+    <>
+      <NavBar />
+      <Hero />
+      <Gallery/>
+    </>
+  );
 }

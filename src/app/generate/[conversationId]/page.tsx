@@ -1,6 +1,5 @@
 "use client";
-import NavBar from "@/components/common/Nav";
-import { Button } from "@/components/ui/button";
+import Chat from "@/components/chat";
 import { useParams } from "next/navigation";
 import React from "react";
 
@@ -9,7 +8,7 @@ function GeneratePage() {
   const conversationId = param.conversationId;
   return (
     <div>
-      <NavBar />
+      <Chat />
     </div>
   );
 }

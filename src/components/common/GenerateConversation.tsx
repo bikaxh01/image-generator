@@ -1,7 +1,7 @@
 import React from "react";
 import GenerateConversationInput from "../form/GenerateConversationInput";
 
-function GenerateConversation({onSubmit}:any) {
+function GenerateConversation({onSubmit,isLoading}:any) {
   return (
     <div className=" mt-40 m-5  flex flex-col items-center justify-center">
       <p className=" text-xl font-semibold">
@@ -16,7 +16,7 @@ function GenerateConversation({onSubmit}:any) {
         Unleash your creativity with AI-powered image generation – stunning
         visuals in just seconds!
       </p>
-      <GenerateConversationInput onSubmit={onSubmit}  />
+      <GenerateConversationInput onSubmit={onSubmit} isLoading ={isLoading}  />
     </div>
   );
 }

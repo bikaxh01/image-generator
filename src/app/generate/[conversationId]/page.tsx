@@ -1,9 +1,14 @@
 "use client";
 import Chat from "@/components/chat";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import React from "react";
 
 function GeneratePage() {
+  const searchParams = useSearchParams();
+  const prompt = searchParams.get('prompt');  
+
+
+  
   const param = useParams();
   const conversationId = param.conversationId;
   return (

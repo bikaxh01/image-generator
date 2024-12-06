@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {SparklesIcon} from 'lucide-react'
+import { SparklesIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -22,13 +22,10 @@ export const promptSchema = z.object({
   }),
 });
 
-function GenerateConversationForm({onSubmit}:any) {
-
+function GenerateConversationForm({ onSubmit,isLoading }: any) {
   const form = useForm<z.infer<typeof promptSchema>>({
     resolver: zodResolver(promptSchema),
   });
-
-  
 
   return (
     <div className=" w-full h-full flex mt-6 items-center justify-center">
@@ -52,7 +49,7 @@ function GenerateConversationForm({onSubmit}:any) {
             )}
           />
           <div className=" items-end flex justify-end">
-            <Button type="submit">Generate {<SparklesIcon/>}</Button>
+            <Button type="submit" disabled={isLoading}>Generate {<SparklesIcon />}</Button>
           </div>
         </form>
       </Form>

@@ -1,9 +1,11 @@
 import React from "react";
 import GenerateConversationInput from "../form/GenerateConversationInput";
+import NavBar from "./Nav";
 
 function GenerateConversation({onSubmit,isLoading}:any) {
   return (
     <div className=" mt-40 m-5  flex flex-col items-center justify-center">
+      
       <p className=" text-xl font-semibold">
         Effortless creativity at your fingertips
       </p>

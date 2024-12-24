@@ -16,7 +16,7 @@ function GeneratePage() {
     if (prompt) {
       setPrompt(prompt);
 
-      const newUrl = window.location.pathname; // Keep only the path
+      const newUrl = window.location.pathname;
       router.replace(newUrl);
     }
   }, []);
@@ -24,7 +24,7 @@ function GeneratePage() {
   const param = useParams();
   const conversationId = param.conversationId;
   return (
-    <Card className=" w-screen h-screen ">
+    <Card className="w-screen h-screen overflow-hidden">
       <ChatComponent />
     </Card>
   );

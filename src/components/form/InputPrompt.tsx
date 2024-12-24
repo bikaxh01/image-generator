@@ -18,37 +18,41 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { promptSchema } from "./GenerateConversationInput";
 
-function InputPromptComponent({ onSubmit,isLoading }: any) {
+function InputPromptComponent({ onSubmit, isLoading }: any) {
   const form = useForm<z.infer<typeof promptSchema>>({
     resolver: zodResolver(promptSchema),
   });
 
   return (
-    <div className=" w-full h-full ">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 ">
-          <FormField
-            control={form.control}
-            name="prompt"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Textarea
-                    placeholder="Write your prompt here"
-                    className="resize-none h-28 font-semibold"
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription></FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className=" items-end flex justify-end">
-            <Button type="submit" disabled={isLoading}>Generate {<SparklesIcon />}</Button>
-          </div>
-        </form>
-      </Form>
+    <div className="flex justify-center items-center h-full">
+      <div className=" w-1/2 fixed  h-full">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="relative">
+            <FormField
+              control={form.control}
+              name="prompt"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Write your prompt here"
+                      className="resize-none h-28 font-semibold"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription></FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="float-right absolute bottom-0 right-0">
+              <Button type="submit" disabled={isLoading}>
+                Generate {<SparklesIcon />}
+              </Button>
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 }
